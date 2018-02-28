@@ -1,12 +1,24 @@
 import React from 'react';
 
 class Todo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete() {
+    const { id, onDelete } = this.props;
+    onDelete(id);
+  }
+
   render() {
+    const { text } = this.props;
     return (
       <div className="todo">
-        <input className="todo__checkbox" type="checkbox" />
-        <span className="todo__text">Заготовка</span>
-        <span className="todo__btn">X</span>
+        <span className="todo__text">- {text}</span>
+        <button onClick={this.handleDelete} className="button">
+          Delete
+        </button>
       </div>
     );
   }
