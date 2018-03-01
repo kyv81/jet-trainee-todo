@@ -6,8 +6,7 @@
   "author": "Yuriy Kurbakov",
   "license": "MIT",
   "scripts": {
-    "start":
-      "npm run clean:tmp && parcel src/index.html -p 3000 --out-dir .tmp",
+    "start": "npm run clean:tmp && parcel src/index.html -p 3000 --out-dir .tmp",
     "build": "npm run lint && npm run clean && npm run build:parcel",
     "lint": "npm run lint:js && npm run lint:css",
     "lint-fix": "npm run lint:js:fix && npm run lint:css:fix",
@@ -21,6 +20,7 @@
     "build:parcel": "parcel build src/index.html --out-dir build --no-cache"
   },
   "dependencies": {
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },

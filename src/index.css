@@ -38,7 +38,7 @@ body {
   cursor: pointer;
   border: 0;
   outline: 0;
-  margin-left: 25px;
+  margin-left: 10px;
   background-color: #008cbd;
   padding: 14px 20px;
   color: #ffffff;
@@ -46,11 +46,21 @@ body {
 }
 
 .todo {
-  display: flex;
   width: 80%;
+  margin-bottom: 10px;
+}
+
+.todo_container {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+}
+
+.todo_input {
+  outline: 0;
+  padding: 12px;
+  width: 50%;
+  font-size: 12px;
 }
 
 .todo__text {

@@ -17,18 +17,27 @@ class App extends React.Component {
       inputValue: '',
       todos: [
         {
-          id: 0,
           value: 'Learn React',
+          id: 0,
         },
       ],
+      edit: false,
+      editInput: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
+    this.handleSave = this.handleSave.bind(this);
+    this.handleChangeEdit = this.handleChangeEdit.bind(this);
   }
 
   handleChange(e) {
     this.setState({ inputValue: e.target.value });
+  }
+
+  handleChangeEdit(e) {
+    this.setState({ editInput: e.target.value });
   }
 
   handleClick() {
@@ -43,8 +52,21 @@ class App extends React.Component {
     }));
   }
 
+  handleEdit() {
+    const { edit } = this.state;
+    this.setState({ edit: !edit });
+  }
+
+  handleSave(idValue) {
+    const { todos, editInput, edit } = this.state;
+    todos.map(
+      todo => (todo.value = idValue === todo.id ? editInput : todo.value),
+    );
+    this.setState({ edit: !edit });
+  }
+
   render() {
-    const { inputValue, todos } = this.state;
+    const { inputValue, todos, edit } = this.state;
     return (
       <div className="container">
         <h1 className="title">Todos</h1>
@@ -63,6 +85,10 @@ class App extends React.Component {
             key={todo.id}
             id={todo.id}
             onDelete={this.handleDelete}
+            edit={edit}
+            onEdit={this.handleEdit}
+            onSave={this.handleSave}
+            onChange={this.handleChangeEdit}
           />
         ))}
       </div>
