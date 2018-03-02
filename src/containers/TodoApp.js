@@ -24,7 +24,8 @@ export default class TodoApp extends React.Component {
   };
 
   onDeleteTodo = index => {
-    const todos = this.state.todos.filter((todo, idx) => idx !== index);
+    const { todos } = this.state;
+    todos.splice(index, 1);
     this.setState({ todos });
   };
 
