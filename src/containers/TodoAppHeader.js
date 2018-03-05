@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../components/Button';
 import TextBox from '../components/TextBox';
 import SelectBox from '../components/SelectBox';
 import types from '../constants';
+
+const propTypes = {
+  onAddTodo: PropTypes.func.isRequired,
+};
 
 export default class TodoAppHeader extends React.Component {
   constructor(props) {
@@ -47,3 +52,5 @@ export default class TodoAppHeader extends React.Component {
     );
   }
 }
+
+TodoAppHeader.propTypes = propTypes;

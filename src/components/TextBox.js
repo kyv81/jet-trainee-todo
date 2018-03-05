@@ -1,4 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};
 
 export default function TextBox(props) {
   const { onChange } = props;
@@ -7,3 +13,5 @@ export default function TextBox(props) {
     <input type="text" value={value} onChange={e => onChange(e.target.value)} />
   );
 }
+
+TextBox.propTypes = propTypes;

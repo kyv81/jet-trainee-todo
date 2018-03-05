@@ -1,14 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextBox from '../components/TextBox';
 import TodoListItem from './TodoListItem';
 
+const propTypes = {
+  onChangeTodo: PropTypes.func.isRequired,
+  onDeleteTodo: PropTypes.func.isRequired,
+  todos: PropTypes.array.isRequired,
+};
+
 export default class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: undefined,
-    };
-  }
+  state = {
+    search: undefined,
+  };
 
   render() {
     const { search } = this.state;
@@ -35,3 +39,5 @@ export default class TodoList extends React.Component {
     );
   }
 }
+
+TodoList.propTypes = propTypes;

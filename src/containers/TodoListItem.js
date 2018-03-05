@@ -1,8 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../components/Button';
 import TextBox from '../components/TextBox';
 import SelectBox from '../components/SelectBox';
 import types from '../constants';
+
+const propTypes = {
+  onChangeTodo: PropTypes.func.isRequired,
+  onDeleteTodo: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  todo: PropTypes.object.isRequired,
+};
 
 export default class TodoListItem extends React.Component {
   constructor(props) {
@@ -75,3 +83,5 @@ export default class TodoListItem extends React.Component {
     return isEditable ? this.renderEdit() : this.renderView();
   }
 }
+
+TodoListItem.propTypes = propTypes;
